@@ -1,2 +1,2 @@
-# Temple_Database_Project
+# Temple Database Project
 DOING DATABASE CONNECTIVITY PROJECT USING PYTHON,FlASK,MYSQL,HTML AND CSS
