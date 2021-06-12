@@ -1,0 +1,32 @@
+
+<table align="center" border=1 cellspacing="3" cellpadding="10">
+    <caption>
+        <h3>LIST OF SEEVAKARTHAS</h3>
+    </caption>
+    <tr>
+        <th align="center">
+            <h5>DATE</h5>
+        </th>
+        <th align="center">
+            <h5>NAME</h5>
+        </th>
+        <th align="center">
+            <h5>COUNT</h5>
+        </th>
+        <th align="center">
+            <h5>TYPE</h5>
+        </th>
+        <th align="center">
+            <h5>AMOUNT</h5>
+        </th>
+    </tr>
+    {% for user in details %}
+    <tr>
+        <td align="center">{{user[0]}}</td>
+        <td align="center">{{user[1]}}</td>
+        <td align="center">{{user[2]}}</td>
+        <td align="center">{{user[3]}}</td>
+        <td align="center">{{user[4]}}</td>
+    </tr>
+    {% endfor %}
+</table>
