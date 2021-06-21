@@ -1,32 +1,102 @@
+<!DOCTYPE html>
+<html>
 
-<table align="center" border=1 cellspacing="3" cellpadding="10">
-    <caption>
-        <h3>LIST OF SEEVAKARTHAS</h3>
-    </caption>
-    <tr>
-        <th align="center">
-            <h5>DATE</h5>
-        </th>
-        <th align="center">
-            <h5>NAME</h5>
-        </th>
-        <th align="center">
-            <h5>COUNT</h5>
-        </th>
-        <th align="center">
-            <h5>TYPE</h5>
-        </th>
-        <th align="center">
-            <h5>AMOUNT</h5>
-        </th>
-    </tr>
-    {% for user in details %}
-    <tr>
-        <td align="center">{{user[0]}}</td>
-        <td align="center">{{user[1]}}</td>
-        <td align="center">{{user[2]}}</td>
-        <td align="center">{{user[3]}}</td>
-        <td align="center">{{user[4]}}</td>
-    </tr>
-    {% endfor %}
-</table>
+<head>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    {% if obj %}
+    <h3 style="padding:15px">Fetch the Data</h3>
+    <form action="/users" method="POST" style="margin-left: 1vw;">
+        <br />
+        <div class="form-outline" style="width: 400px;">
+            <input type="text" name="name" id="form1" class="form-control" />
+            <label class="form-label" for="form1">Name</label>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+    <form action="/date" method="POST" style="margin: 1vw;">
+        <br />
+        <div class="form-outline" style="width: 400px;">
+            <input type="date" name="date" id="form1" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+    {% endif %}
+
+    {% if here %}
+    <table align="center" border=2 cellspacing="5" cellpadding="5" style="margin-top: 1vw;">
+        <tr align="center">
+            <th>
+                <h4>DATE</h4>
+            </th>
+            <th>
+                <h4>NAME</h4>
+            </th>
+            <th>
+                <h4>COUNT</h4>
+            </th>
+            <th>
+                <h4>TYPE</h4>
+            </th>
+            <th>
+                <h4>AMOUNT</h4>
+            </th>
+        </tr>
+        {% for user in here %}
+        <tr>
+            <td align="center">{{user[0]}}</td>
+            <td align="center">{{user[1]}}</td>
+            <td align="center">{{user[2]}}</td>
+            <td align="center">{{user[3]}}</td>
+            <td align="center">{{user[4]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+    {% if there %}
+    <table align="center" border=2 cellspacing="5" cellpadding="5" style="margin-top: 1vw;">
+        <tr align="center">
+            <th>
+                <h4>DATE</h4>
+            </th>
+            <th>
+                <h4>NAME</h4>
+            </th>
+            <th>
+                <h4>COUNT</h4>
+            </th>
+            <th>
+                <h4>TYPE</h4>
+            </th>
+            <th>
+                <h4>AMOUNT</h4>
+            </th>
+        </tr>
+        {% for user in there %}
+        <tr>
+            <td align="center">{{user[0]}}</td>
+            <td align="center">{{user[1]}}</td>
+            <td align="center">{{user[2]}}</td>
+            <td align="center">{{user[3]}}</td>
+            <td align="center">{{user[4]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+</html>

@@ -1,0 +1,34 @@
+{% if obj %}
+<h2 align="right">Total Amount : {{obj.tamount}}</h2>
+<table align="center" border=1 cellspacing="3" cellpadding="5">
+    <caption>
+        <h3>LIST OF SEEVAKARTHAS</h3>
+    </caption>
+    <tr>
+        <th align="center">
+            <h4>DATE</h4>
+        </th>
+        <th align="center">
+            <h4>NAME</h4>
+        </th>
+        <th align="center">
+            <h4>COUNT</h4>
+        </th>
+        <th align="center">
+            <h4>TYPE</h4>
+        </th>
+        <th align="center">
+            <h4>AMOUNT</h4>
+        </th>
+    </tr>
+    {% for user in obj.details %}
+    <tr>
+        <td align="center">{{user[0]}}</td>
+        <td align="center">{{user[1]}}</td>
+        <td align="center">{{user[2]}}</td>
+        <td align="center">{{user[3]}}</td>
+        <td align="center">{{user[4]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}

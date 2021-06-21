@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Counter</title>
+    <link rel="shortcut icon" href="https://apprecs.org/ios/images/app-icons/256/b1/411894449.jpg" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
@@ -20,7 +21,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet" />
-    <link src="dropdown.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/popup.css')}}">
+    <script type="text/javascript" src="/static/js/popup.js"></script> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/incdec.css')}}" />
 </head>
 
 <body>
@@ -48,7 +51,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
             <div class="container-fluid">
                 <!-- Navbar brand -->
-                <a class="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/">
+                <a class="navbar-brand nav-link" target="_blank">
                     <strong>KUKKE SUBRAMANYA TEMPLE</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -67,24 +70,24 @@
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
                 <div class="container d-flex align-items-center justify-content-center text-center h-100">
                     <div class="text-white">
-                        <h1 class="mb-3">SEEVA COUNTER</h1>
+                        <h1 class="mb-3">Seeva Counter</h1>
                         <form action="/" method="POST">
                             <div class="form-outline" style="width:400px">
-                                <input type="datetime-local" name="date" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" />
+                                <input type="date" name="date" class="form-control"
+                                    style="color: rgba(255, 255, 255, 0.8);" id="date" required />
                                 <!-- <label class="form-label" style="color: rgba(255, 255, 255, 0.8);">Date and time</label> -->
                             </div>
                             <br />
                             <div class="form-outline">
                                 <input type="text" name="name" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" />
+                                    style="color: rgba(255, 255, 255, 0.8);" id="name" required />
                                 <label class="form-label" for="typeNumber" style="color: rgba(255, 255, 255, 0.8);">Name
                                 </label>
                             </div>
                             <br />
                             <div class="form-outline">
                                 <input type="number" name="count" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" />
+                                    style="color: rgba(255, 255, 255, 0.8);" id="count" required />
                                 <label class="form-label" for="typeNumber"
                                     style="color: rgba(255, 255, 255, 0.8);">Count</label>
                             </div>
@@ -92,23 +95,31 @@
 
                             <div class="form-group">
                                 <select class="form-control" style="background-color:transparent; color: #fff;"
-                                    name="tyseeva" required>
+                                    name="tyseeva" id="type" required>
                                     <option style="color: black;" value="">--Select--</option>
                                     <option style="color: black;" value="Mangalarathi">Mangalarathi</option>
                                     <option style="color: black;" value="Karpooraarathi">Karpooraarathi</option>
                                     <option style="color: black;" value="Hoovinapooje">Hoovinapooje</option>
                                 </select>
                             </div>
+                            <!-- <br />
+                            <div class="container">
+                                <div class="quantity">
+                                    <a href="#" class="quantity__minus"><span>-</span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value="1">
+                                    <a href="#" class="quantity__plus"><span>+</span></a>
+                                </div>
+                            </div> -->
                             <br />
                             <div class="form-outline">
                                 <input type="text" name="amount" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" />
+                                    style="color: rgba(255, 255, 255, 0.8);" id="amount" required />
                                 <label class="form-label" for="typeNumber"
                                     style="color: rgba(255, 255, 255, 0.8);">Total
                                     Amount</label>
                             </div>
                             <br />
-                            <input type="submit" class="btn btn-outline-light btn-lg m-2" role="button" />
+                            <input type="submit" id="success" class="btn btn-outline-light btn-lg m-2" role="button" />
                         </form>
                         <a type="submit" href="/users" color="white">
                             <h6>Details ?</h6>
@@ -118,15 +129,17 @@
             </div>
         </div>
         <!-- Background image -->
+        <div class="notify"><span id="notifyType" class=""></span></div>
     </header>
     <!--Main Navigation-->
     <!-- MDB -->
+    </script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/incdec.js')}}"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="js/script.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
-    <script type="text/javascript" src="dropdown.jss"></script>
 </body>
 
 </html>
