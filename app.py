@@ -54,6 +54,23 @@ def users():
         return render_template("users.html", obj=obj)
 
 
+@app.route("/list")
+def list():
+    with sqlite3.connect(db_path) as connection:
+        cur = connection.cursor()
+        cur.execute("SELECT * FROM seeva")
+        details = cur.fetchall()
+        cur.execute("SELECT SUM(Amount) FROM seeva")
+        tamt = str(cur.fetchone()[0])+" Rs"
+
+        obj = {
+            "details": details,
+            "tamount": tamt,
+        }
+
+        return render_template("list.html", obj=obj)
+
+
 @app.route("/users", methods=["POST"])
 def search():
     try:
@@ -67,8 +84,8 @@ def search():
                         "SELECT * FROM seeva WHERE Name LIKE '%{n}%'".format(n=name))
                     details = cu.fetchall()
                     return render_template("users.html", here=details)
-        else:
-            return "NO Data Available!!!!"
+            else:
+                return "PLEASE ENTER VALUE!!!"
     except:
         return "SORRY!!! NO DATA AVAILABLE !!!"
 
@@ -86,8 +103,8 @@ def search1():
                         "SELECT * FROM seeva WHERE Date LIKE '%{d}%'".format(d=date))
                     datedata = cu.fetchall()
                     return render_template("users.html", there=datedata)
-        else:
-            return "NO Data Available!!!!"
+            else:
+                return "PLEASE ENTER VALUE!!!"
     except:
         return "SORRY!!! NO DATA AVAILABLE !!!"
 
