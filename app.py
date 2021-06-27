@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
 import os.path
+import uuid
 
 currentdirectory = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(currentdirectory, "counter.db")
@@ -20,16 +21,31 @@ def counter():
         details = request.form
         dat = details["date"]
         nam = details["name"]
-        num = details["count"]
-        tyseeva = details["tyseeva"]
-        amount = details["amount"]
+        gon = []
+        gon.append(int(details["manga_count"]))
+        gon.append(int(details["maha_count"]))
+        gon.append(int(details["ashlesha_count"]))
+        gon.append(int(details["karpura_count"]))
+        gon.append(int(details["sarpa_count"]))
+        gon.append(int(details["abhi_count"]))
+        # num = details["count"]
+        # tyseeva = details["tyseeva"]
+        # amount = details["amount"]
 
         with sqlite3.connect(db_path) as connection:
             cursor = connection.cursor()
-            query1 = "INSERT INTO seeva VALUES('{Date}','{Name}',{Number},'{Type}',{Amount})".format(
-                Date=dat, Name=nam, Number=num, Type=tyseeva, Amount=amount)
+            Did = str(uuid.uuid4())
+            query1 = "INSERT INTO Data VALUES('{Date}','{Name}','{Did}')".format(
+                Date=dat, Name=nam, Did=Did)
+
             cursor.execute(query1)
             connection.commit()
+            for i, pooja in enumerate(gon):
+                if pooja != 0:
+                    query2 = "INSERT INTO maintable(Recieptno,Count,Poojaid) VALUES('{Recieptno}',{Count},{Poojaid})".format(
+                        Recieptno=Did, Count=pooja, Poojaid=i)
+                    cursor.execute(query2)
+                    connection.commit()
             cursor.close()
             return redirect("/")
 
@@ -41,7 +57,7 @@ def counter():
 def users():
     with sqlite3.connect(db_path) as connection:
         cur = connection.cursor()
-        cur.execute("SELECT * FROM seeva")
+        cur.execute("SELECT * FROM ")
         details = cur.fetchall()
         cur.execute("SELECT SUM(Amount) FROM seeva")
         tamt = str(cur.fetchone()[0])+" Rs"

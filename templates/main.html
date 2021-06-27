@@ -24,6 +24,7 @@
     <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/popup.css')}}">
     <script type="text/javascript" src="/static/js/popup.js"></script> -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/incdec.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -69,31 +70,33 @@
         <div id="intro" class="bg-image shadow-2-strong">
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
                 <div class="container d-flex align-items-center justify-content-center text-center h-100">
-                    <div class="text-white">
+                    <div class="text-white" align="center">
+                        <br />
+                        <br />
                         <h1 class="mb-3">Seeva Counter</h1>
+
                         <form action="/" method="POST">
-                            <div class="form-outline" style="width:400px">
+                            <div class="form-outline" style="width:350px">
                                 <input type="datetime-local" name="date" class="form-control"
                                     style="color: rgba(255, 255, 255, 0.8);" id="date" required />
                                 <!-- <label class="form-label" style="color: rgba(255, 255, 255, 0.8);">Date and time</label> -->
                             </div>
                             <br />
-                            <div class="form-outline">
+                            <div class="form-outline" style="width:350px">
                                 <input type="text" name="name" class="form-control"
                                     style="color: rgba(255, 255, 255, 0.8);" id="name" required />
                                 <label class="form-label" for="typeNumber" style="color: rgba(255, 255, 255, 0.8);">Name
                                 </label>
                             </div>
                             <br />
-                            <div class="form-outline">
+                            <div class="form-outline" style="width:350px">
                                 <input type="number" name="count" class="form-control"
                                     style="color: rgba(255, 255, 255, 0.8);" id="count" required />
                                 <label class="form-label" for="typeNumber"
                                     style="color: rgba(255, 255, 255, 0.8);">Count</label>
                             </div>
                             <br />
-
-                            <div class="form-group">
+                            <div class="form-group" style="width:350px">
                                 <select class="form-control" style="background-color:transparent; color: #fff;"
                                     name="tyseeva" id="type" required>
                                     <option style="color: black;" value="">--Select--</option>
@@ -103,7 +106,60 @@
                                 </select>
                             </div>
                             <br />
-                            <div class="form-outline">
+                            <div>
+                                <div style="float: left;">
+                                    <h6>&nbspMangalarathi &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus7"><span>-</span></a>
+                                        <input name="manga_count" type="text" class="quantity__input7" value="0">
+                                        <a href="#" class="quantity__plus7"><span>+</span></a>
+                                    </div>
+                                </div>
+                                <div style="float: left;">
+                                    <h6>&nbspMaha pooja &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus2"><span>-</span></a>
+                                        <input name="maha_count" type="text" class="quantity__input2" value="0">
+                                        <a href="#" class="quantity__plus2"><span>+</span></a>
+                                    </div>
+                                </div>
+                                <div style="float: left;">
+                                    <h6>&nbspAshleshabali &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus3"><span>-</span></a>
+                                        <input name="ashlesha_count" type="text" class="quantity__input3" value="0">
+                                        <a href="#" class="quantity__plus3"><span>+</span></a>
+                                    </div>
+                                </div>
+                                <div style="float: left;">
+                                    <h6>&nbspKarpuraarathi &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus4"><span>-</span></a>
+                                        <input name="karpura_count" type="text" class="quantity__input4" value="0">
+                                        <a href="#" class="quantity__plus4"><span>+</span></a>
+                                    </div>
+                                </div>
+                                <div style="float: left;">
+                                    <h6>&nbspSarpasamskara &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus5"><span>-</span></a>
+                                        <input name="sarpa_count" type="text" class="quantity__input5" value="0">
+                                        <a href="#" class="quantity__plus5"><span>+</span></a>
+                                    </div>
+                                </div>
+                                <div style="float: left;">
+                                    <h6>&nbspMaha Abhisheka &nbsp</h6>
+                                    <div class="quantity">
+                                        <a href="#" class="quantity__minus6"><span>-</span></a>
+                                        <input name="abhi_count" type="text" class="quantity__input6" value="0">
+                                        <a href="#" class="quantity__plus6"><span>+</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <div class="form-outline" style="width:350px">
                                 <input type="text" name="amount" class="form-control"
                                     style="color: rgba(255, 255, 255, 0.8);" id="amount" required />
                                 <label class="form-label" for="typeNumber"
@@ -128,7 +184,6 @@
     </header>
     <!--Main Navigation-->
     <!-- MDB -->
-    </script>
     <script type="text/javascript" src="{{url_for('static', filename='js/incdec.js')}}"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
