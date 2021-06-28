@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
 import os.path
-import uuid
+import shortuuid
 
 currentdirectory = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(currentdirectory, "counter.db")
@@ -28,13 +28,10 @@ def counter():
         gon.append(int(details["karpura_count"]))
         gon.append(int(details["sarpa_count"]))
         gon.append(int(details["abhi_count"]))
-        # num = details["count"]
-        # tyseeva = details["tyseeva"]
-        # amount = details["amount"]
 
         with sqlite3.connect(db_path) as connection:
             cursor = connection.cursor()
-            Did = str(uuid.uuid4())
+            Did = str(shortuuid.uuid())
             query1 = "INSERT INTO Data VALUES('{Date}','{Name}','{Did}')".format(
                 Date=dat, Name=nam, Did=Did)
 
@@ -57,7 +54,7 @@ def counter():
 def users():
     with sqlite3.connect(db_path) as connection:
         cur = connection.cursor()
-        cur.execute("SELECT * FROM ")
+        cur.execute("SELECT Did,Date,Name,Count,Pooja FROM Data,maintable,typesofseeva WHERE Data.Did = maintable.Recieptno AND maintable.Poojaid = typesofseeva.Id")
         details = cur.fetchall()
         cur.execute("SELECT SUM(Amount) FROM seeva")
         tamt = str(cur.fetchone()[0])+" Rs"
@@ -74,8 +71,9 @@ def users():
 def list():
     with sqlite3.connect(db_path) as connection:
         cur = connection.cursor()
-        cur.execute("SELECT * FROM seeva")
+        cur.execute("SELECT Did,Date,Name,Count,Pooja FROM Data,maintable,typesofseeva WHERE Data.Did = maintable.Recieptno AND maintable.Poojaid = typesofseeva.Id")
         details = cur.fetchall()
+        print(details)
         cur.execute("SELECT SUM(Amount) FROM seeva")
         tamt = str(cur.fetchone()[0])+" Rs"
 
@@ -97,7 +95,9 @@ def search():
                 with sqlite3.connect(db_path) as connection:
                     cu = connection.cursor()
                     cu.execute(
-                        "SELECT * FROM seeva WHERE Name LIKE '%{n}%'".format(n=name))
+                        "SELECT Did, Date, Name, Count, Pooja FROM Data, maintable, typesofseeva WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Name LIKE '%{n}%'".format(
+                            n=name))
+                    # "SELECT * FROM seeva WHERE Name LIKE '%{n}%'".format(n=name))
                     details = cu.fetchall()
                     return render_template("users.html", here=details)
             else:
@@ -106,7 +106,7 @@ def search():
         return "SORRY!!! NO DATA AVAILABLE !!!"
 
 
-@app.route("/date", methods=["POST"])
+@ app.route("/date", methods=["POST"])
 def search1():
     try:
         if request.method == "POST":
@@ -116,7 +116,7 @@ def search1():
                 with sqlite3.connect(db_path) as connection:
                     cu = connection.cursor()
                     cu.execute(
-                        "SELECT * FROM seeva WHERE Date LIKE '%{d}%'".format(d=date))
+                        "SELECT Did, Date, Name, Count, Pooja FROM Data, maintable, typesofseeva WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Date LIKE '%{d}%'".format(d=date))
                     datedata = cu.fetchall()
                     return render_template("users.html", there=datedata)
             else:

@@ -4,8 +4,8 @@
   justify-content: center;
   padding: 0;
 }
-.quantity__minus7,
-.quantity__plus7 {
+.quantity__minus1,
+.quantity__plus1 {
   display: block;
   width: 22px;
   height: 23px;
@@ -15,18 +15,18 @@
   text-align: center;
   line-height: 23px;
 }
-.quantity__minus7:hover,
-.quantity__plus7:hover {
+.quantity__minus1:hover,
+.quantity__plus1:hover {
   background: #575b71;
   color: #fff;
 } 
-.quantity__minus7{
+.quantity__minus1{
   border-radius: 3px 0 0 3px;
 }
-.quantity__plus7 {
+.quantity__plus1 {
   border-radius: 0 3px 3px 0;
 }
-.quantity__input7 {
+.quantity__input1 {
   width: 28px;
   height: 23px;
   margin: 0;
@@ -39,12 +39,12 @@
   background: #fff;
   color: #8184a1;
 }
-.quantity__minus7:link,
-.quantity__plus7:link {
+.quantity__minus1:link,
+.quantity__plus1:link {
   color: #8184a1;
 } 
-.quantity__minus7:visited,
-.quantity__plus7:visited {
+.quantity__minus1:visited,
+.quantity__plus1:visited {
   color: #fff;
 }
 
