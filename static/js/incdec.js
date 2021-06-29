@@ -1,5 +1,9 @@
 //Increment Decrement SOLUTION
-var total_amount = 0.0;
+var total_amount = 0;
+// var amount = {
+//     'total_amount': total_amount,
+// }
+
 document.getElementById("AMT").innerHTML = total_amount;
 //mangalarathi
 $(document).ready(function () {
@@ -168,5 +172,4 @@ $(document).ready(function () {
         input.val(value);
     })
 });
-
 
