@@ -16,7 +16,7 @@ $(document).ready(function () {
     var amount1 = 50;
     const minus = $('.quantity__minus1');
     const plus = $('.quantity__plus1');
-    const input = $('.quantity__input1');
+    const input = $('.quantity__input1').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();
@@ -49,7 +49,7 @@ $(document).ready(function () {
     var amount2 = 100;
     const minus = $('.quantity__minus2');
     const plus = $('.quantity__plus2');
-    const input = $('.quantity__input2');
+    const input = $('.quantity__input2').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();
@@ -80,7 +80,7 @@ $(document).ready(function () {
     var amount3 = 200;
     const minus = $('.quantity__minus3');
     const plus = $('.quantity__plus3');
-    const input = $('.quantity__input3');
+    const input = $('.quantity__input3').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();
@@ -110,7 +110,7 @@ $(document).ready(function () {
     var amount4 = 30;
     const minus = $('.quantity__minus4');
     const plus = $('.quantity__plus4');
-    const input = $('.quantity__input4');
+    const input = $('.quantity__input4').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();
@@ -139,7 +139,7 @@ $(document).ready(function () {
     var amount5 = 2000;
     const minus = $('.quantity__minus5');
     const plus = $('.quantity__plus5');
-    const input = $('.quantity__input5');
+    const input = $('.quantity__input5').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();
@@ -168,7 +168,7 @@ $(document).ready(function () {
     var amount6 = 300;
     const minus = $('.quantity__minus6');
     const plus = $('.quantity__plus6');
-    const input = $('.quantity__input6');
+    const input = $('.quantity__input6').attr('readonly', true);
     minus.click(function (e) {
         e.preventDefault();
         var value = input.val();

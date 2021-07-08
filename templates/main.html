@@ -25,6 +25,12 @@
     <script type="text/javascript" src="/static/js/popup.js"></script> -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/incdec.css')}}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Merienda:wght@700&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -53,7 +59,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
             <div class="container-fluid">
                 <!-- Navbar brand -->
-                <a class="navbar-brand nav-link" target="_blank" href="https://www.kukke.org/en/home.aspx">
+                <a class="navbar-brand nav-link" target="_blank" href="https://www.kukke.org/en/home.aspx"
+                    style="letter-spacing: 0.5px; font-family: 'Montserrat', sans-serif;">
                     <strong>KUKKE SHREE SUBRAMANYA TEMPLE</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -74,8 +81,11 @@
                     <div class="text-white" align="center">
                         <br />
                         <br />
-                        <h2 class="mb-3">SEEVA COUNTER</h2>
-                        <p class="mb-3">MUZARAI DEPARTMENT OF GOVERNMENT OF KARNATAKA</p>
+                        <h2 style="letter-spacing: 1.5px; font-family: 'Montserrat', sans-serif;">SEEVA COUNTER</h2>
+                        <h6 class="mb-3" style="letter-spacing: 0.5px;font-family: 'Carter One', cursive;">
+                            GOVERNMENT <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Seal_of_Karnataka.svg/1200px-Seal_of_Karnataka.svg.png"
+                                height="40px" width="40px" /> KARNATAKA</h6>
                         <form action="/" method="POST">
                             <div class="form-outline" style="width:350px">
                                 <input type="datetime-local" name="date" class="form-control"
@@ -150,7 +160,8 @@
                             <br />
                             <br />
                             <div>
-                                <h3 style="color: #fff;">TOTAL : <span id="AMT"></span></h3>
+                                <h3 style="color: #fff; font-family: 'Carter One', cursive;">TOTAL : <span
+                                        id="AMT"></span></h3>
                             </div>
                             <input type="hidden" id="totalhidden" name="totalhidden">
                             <input type="submit" id="btnPrint" onclick="PrintDiv();"

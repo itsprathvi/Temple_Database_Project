@@ -37,7 +37,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus1:link,
 .quantity__plus1:link {
@@ -45,7 +45,7 @@
 } 
 .quantity__minus1:visited,
 .quantity__plus1:visited {
-  color: #fff;
+  color: #000000;
 }
 
 
@@ -83,7 +83,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus2:link,
 .quantity__plus2:link {
@@ -91,7 +91,7 @@
 } 
 .quantity__minus2:visited,
 .quantity__plus2:visited {
-  color: #fff;
+  color: #000000;
 }
 
 
@@ -129,7 +129,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus3:link,
 .quantity__plus3:link {
@@ -175,7 +175,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus4:link,
 .quantity__plus4:link {
@@ -220,7 +220,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus5:link,
 .quantity__plus5:link {
@@ -265,7 +265,7 @@
   border-left: 1px solid #dee0ee;
   border-right: 2px solid #dee0ee;
   background: #fff;
-  color: #8184a1;
+  color: #000000;
 }
 .quantity__minus6:link,
 .quantity__plus6:link {
