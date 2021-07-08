@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="{{url_for('static', filename='js/incdec.js')}}"></script>
+</head>
+
+<body>
+    <div class="container" id="printdivcontent">
+        <fieldset>
+            <legend>Your Bill</legend>
+            <h3>Name:<span id="name2"></span></h3>
+            <h3>date: <span id="date2"></span></h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>SEVAS</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amout</th>
+                    </tr>
+                </thead>
+                <tbody id="bill">
+                </tbody>
+            </table>
+        </fieldset>
+        <h1>Total Amout: Rs. <span id="amounts">0</span></h1>
+        <p class="centered">Thankyou!
+            <br>Visit once again
+            <br>for more queries visit <a href="https://www.kukke.org/en/home.aspx"
+                target="_blank">https://www.kukke.org/en/home.aspx</a>
+            <br>
+        </p>
+    </div>
+</body>
+<script type="text/javascript" src="{{url_for('static', filename='js/print.js')}}"></script>
+
+</html>

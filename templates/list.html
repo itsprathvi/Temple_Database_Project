@@ -1,5 +1,5 @@
 {% if obj %}
-<!-- <h2 align="right">Total Amount : {{obj.tamount}}</h2> -->
+<h2 align="right">Total Amount : {{obj.tamount}}</h2>
 <table align="center" border=1 cellspacing="3" cellpadding="5">
     <caption>
         <h3>LIST OF SEEVAKARTHAS</h3>
@@ -20,6 +20,9 @@
         <th align="center">
             <h4>POOJA</h4>
         </th>
+        <th align="center">
+            <h4>Amount</h4>
+        </th>
     </tr>
     {% for user in obj.details %}
     <tr>
@@ -28,6 +31,7 @@
         <td align="center">{{user[2]}}</td>
         <td align="center">{{user[3]}}</td>
         <td align="center">{{user[4]}}</td>
+        <td align="center">{{user[5]}}</td>
     </tr>
     {% endfor %}
 </table>

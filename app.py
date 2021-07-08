@@ -19,11 +19,9 @@ def counter():
     if request.method == "POST":
 
         details = request.form
-        # data = {}
         dat = details["date"]
         nam = details["name"]
-        # data["total_amount"] = request.json["total_amount"]
-        # amt = jsonify(data)
+        amt = int(details["totalhidden"])
         gon = []
         gon.append(int(details["manga_count"]))
         gon.append(int(details["maha_count"]))
@@ -35,15 +33,16 @@ def counter():
         with sqlite3.connect(db_path) as connection:
             cursor = connection.cursor()
             Did = str(shortuuid.uuid())
+
             query1 = "INSERT INTO Data VALUES('{Date}','{Name}','{Did}')".format(
                 Date=dat, Name=nam, Did=Did)
             cursor.execute(query1)
             connection.commit()
 
-            # query2 = "INSERT INTO AMT VALUES('{RN}',{Amount})".format(
-            #     RN=Did, Amount=amt)
-            # cursor.execute(query2)
-            # connection.commit()
+            query2 = "INSERT INTO AMT VALUES({Amount},'{RN}')".format(
+                Amount=amt, RN=Did)
+            cursor.execute(query2)
+            connection.commit()
 
             for i, pooja in enumerate(gon):
                 if pooja != 0:
@@ -64,12 +63,12 @@ def users():
         cur = connection.cursor()
         cur.execute("SELECT Did,Date,Name,Count,Pooja FROM Data,maintable,typesofseeva WHERE Data.Did = maintable.Recieptno AND maintable.Poojaid = typesofseeva.Id")
         details = cur.fetchall()
-        # cur.execute("SELECT SUM(Amount) FROM seeva")
-        # tamt = str(cur.fetchone()[0])+" Rs"
+        cur.execute("SELECT SUM(Amount) FROM AMT")
+        tamt = str(cur.fetchone()[0])+" Rs"
 
         obj = {
             "details": details,
-            # "tamount": tamt,
+            "tamount": tamt,
         }
 
         return render_template("users.html", obj=obj)
@@ -79,15 +78,14 @@ def users():
 def list():
     with sqlite3.connect(db_path) as connection:
         cur = connection.cursor()
-        cur.execute("SELECT Did,Date,Name,Count,Pooja FROM Data,maintable,typesofseeva WHERE Data.Did = maintable.Recieptno AND maintable.Poojaid = typesofseeva.Id")
+        cur.execute("SELECT Did,Date,Name,Count,Pooja,Amount FROM Data,maintable,typesofseeva,AMT WHERE Data.Did = maintable.Recieptno AND maintable.Poojaid = typesofseeva.Id AND Data.Did = AMT.RN")
         details = cur.fetchall()
-        print(details)
-        # cur.execute("SELECT SUM(Amount) FROM seeva")
-        # tamt = str(cur.fetchone()[0])+" Rs"
+        cur.execute("SELECT SUM(Amount) FROM AMT")
+        tamt = str(cur.fetchone()[0])+" Rs"
 
         obj = {
             "details": details,
-            # "tamount": tamt,
+            "tamount": tamt,
         }
 
         return render_template("list.html", obj=obj)
@@ -103,7 +101,7 @@ def search():
                 with sqlite3.connect(db_path) as connection:
                     cu = connection.cursor()
                     cu.execute(
-                        "SELECT Did, Date, Name, Count, Pooja FROM Data, maintable, typesofseeva WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Name LIKE '%{n}%'".format(
+                        "SELECT Did, Date, Name, Count, Pooja,Amount FROM Data, maintable, typesofseeva,AMT WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Data.Did=AMT.RN AND Name LIKE '%{n}%'".format(
                             n=name))
                     details = cu.fetchall()
                     return render_template("users.html", here=details)
@@ -123,7 +121,7 @@ def search1():
                 with sqlite3.connect(db_path) as connection:
                     cu = connection.cursor()
                     cu.execute(
-                        "SELECT Did, Date, Name, Count, Pooja FROM Data, maintable, typesofseeva WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Date LIKE '%{d}%'".format(d=date))
+                        "SELECT Did, Date, Name, Count, Pooja,Amount FROM Data, maintable, typesofseeva,AMT WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Data.Did=AMT.RN AND Date LIKE '%{d}%'".format(d=date))
                     datedata = cu.fetchall()
                     return render_template("users.html", there=datedata)
             else:
