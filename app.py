@@ -52,7 +52,6 @@ def counter():
                     connection.commit()
             cursor.close()
             return redirect("/")
-
     else:
         return render_template("main.html")
 
@@ -101,7 +100,7 @@ def search():
                 with sqlite3.connect(db_path) as connection:
                     cu = connection.cursor()
                     cu.execute(
-                        "SELECT Did, Date, Name, Count, Pooja,Amount FROM Data, maintable, typesofseeva,AMT WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Data.Did=AMT.RN AND Name LIKE '%{n}%'".format(
+                        "SELECT Did, Date, Name, Count, Pooja FROM Data, maintable, typesofseeva WHERE Data.Did=maintable.Recieptno AND maintable.Poojaid=typesofseeva.Id AND Name LIKE '%{n}%'".format(
                             n=name))
                     details = cu.fetchall()
                     return render_template("users.html", here=details)

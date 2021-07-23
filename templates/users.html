@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -51,9 +52,6 @@
             <th>
                 <h4>POOJA</h4>
             </th>
-            <th>
-                <h4>AMOUNT</h4>
-            </th>
         </tr>
         {% for user in here %}
         <tr>
@@ -62,12 +60,10 @@
             <td align="center">{{user[2]}}</td>
             <td align="center">{{user[3]}}</td>
             <td align="center">{{user[4]}}</td>
-            <td align="center">{{user[5]}}</td>
         </tr>
         {% endfor %}
     </table>
     {% endif %}
-
 
     {% if there %}
     <table align="center" border=2 cellspacing="5" cellpadding="5" style="margin-top: 1vw;">

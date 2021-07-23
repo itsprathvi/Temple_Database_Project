@@ -86,16 +86,16 @@
                             GOVERNMENT <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Seal_of_Karnataka.svg/1200px-Seal_of_Karnataka.svg.png"
                                 height="40px" width="40px" /> KARNATAKA</h6>
-                        <form action="/" method="POST">
+                        <form action="/" method="POST" onsubmit="submitted();">
                             <div class="form-outline" style="width:350px">
-                                <input type="datetime-local" name="date" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" id="date" required />
+                                <input type="datetime-local" name="date" id="date" class="form-control"
+                                    style="color: rgba(255, 255, 255, 0.8);" required />
                                 <!-- <label class="form-label" style="color: rgba(255, 255, 255, 0.8);">Date and time</label> -->
                             </div>
                             <br />
                             <div class="form-outline" style="width:350px">
-                                <input type="text" name="name" class="form-control"
-                                    style="color: rgba(255, 255, 255, 0.8);" id="name" required />
+                                <input type="text" name="name" id="name" class="form-control"
+                                    style="color: rgba(255, 255, 255, 0.8);" required />
                                 <label class="form-label" for="typeNumber" style="color: rgba(255, 255, 255, 0.8);">Name
                                 </label>
                             </div>
@@ -164,8 +164,8 @@
                                         id="AMT"></span></h3>
                             </div>
                             <input type="hidden" id="totalhidden" name="totalhidden">
-                            <input type="submit" id="btnPrint" onclick="PrintDiv();"
-                                class="btn btn-outline-light btn-lg m-2" role="button" />
+                            <input type="submit" class="btn btn-outline-light btn-lg m-2" onclick="printcontent()"
+                                role="button" />
                         </form>
                         <a type="submit" href="/users" color="white">
                             <h6>Details? </h6>
@@ -182,10 +182,14 @@
     </header>
     <!--Main Navigation-->
     <!-- MDB -->
+    <script>
+        function submitted() {
+            alert("Data Submitted Successfully!");
+        }
+    </script>
     <script type="text/javascript" src="{{url_for('static', filename='js/incdec.js')}}"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
-    <script type="text/javascript" src="js/script.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
 </body>
