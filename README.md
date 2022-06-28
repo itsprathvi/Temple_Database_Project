@@ -1,6 +1,6 @@
 <h1 align="center">TEMPLE DATABASE MANAGEMENT SYSTEM</h1>
 <h4 align="center">Reciept Counter</h4>
-<p align="center"><a href="https://temple-counter.herokuapp.com/"><img src="https://www.kukke.org/assets/images/kukke-heading-god.png" height="200px" width="150px"/></a></p>
+<p align="center"><a href="https://temple-counter.herokuapp.com/"><img src="https://freepngimg.com/download/temple/32585-1-temple-transparent.png" height="250px" width="350px"/></a></p>
 
    <!-- TABLE OF CONTENTS -->
    <details open="open">
@@ -19,6 +19,7 @@
    
    
    1. Backend Framework: **Flask**
+
    2. Front-end Framework: **MDBootstrap**
    
    ## INSTALLATION 
