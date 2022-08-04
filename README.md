@@ -1,5 +1,4 @@
 <h1 align="center">TEMPLE DATABASE MANAGEMENT SYSTEM</h1>
-<h4 align="center">Reciept Counter</h4>
 <p align="center"><a href="https://temple-counter.herokuapp.com/"><img src="https://freepngimg.com/download/temple/32585-1-temple-transparent.png" height="250px" width="350px"/></a></p>
 
    <!-- TABLE OF CONTENTS -->
