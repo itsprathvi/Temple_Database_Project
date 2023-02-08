@@ -1,3 +1,4 @@
+python==3.11.1
 beautifulsoup4==4.8.2
 blinker==1.4
 Flask==2.0.2
